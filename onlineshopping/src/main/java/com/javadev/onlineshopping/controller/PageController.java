@@ -1,7 +1,6 @@
 package com.javadev.onlineshopping.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,12 +17,12 @@ public class PageController {
 		return model;
 	}
 	
-	/*@RequestMapping(value = "/about")
+	@RequestMapping(value = "/about")
 	public ModelAndView about() {
 		
 		ModelAndView model = new ModelAndView("page");
 		model.addObject("title","About Us");
-		model.addObject("userClickHome", true);
+		model.addObject("userClickAbout", true);
 		return model;
 	}
 	
@@ -32,11 +31,13 @@ public class PageController {
 		
 		ModelAndView model = new ModelAndView("page");
 		model.addObject("title","Contact Us");
-		model.addObject("userClickHome", true);
+		model.addObject("userClickContact", true);
 		return model;
-	}*/
+	}
 	
-	/*@RequestMapping(value = "/test")
+	/* For Testing Purpose.
+	 * 
+	 * @RequestMapping(value = "/test")
 	public ModelAndView test(@RequestParam(value="greeting", required=false) String greeting){
 		
 		if(greeting == null){

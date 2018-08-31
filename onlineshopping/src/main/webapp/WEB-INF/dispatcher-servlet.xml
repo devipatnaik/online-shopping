@@ -10,8 +10,9 @@
    http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<!-- To identify the all controller classes. -->
-	<context:component-scan base-package="com.javadev.onlineshopping.controller"></context:component-scan>
+	<!-- To identify the all controller classes in the package. -->
+	<context:component-scan base-package="com.javadev.onlineshopping.controller" />
+	<context:component-scan base-package="com.dev.shoppingbackend.daoimpl" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

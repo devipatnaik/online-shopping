@@ -76,7 +76,6 @@
 			</c:if>
 			
 			
-
 		</div>
 
 		<!-- Footer comes here -->

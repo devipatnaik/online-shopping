@@ -1,5 +1,8 @@
 package com.javadev.onlineshopping.controller;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,14 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.shoppingbackend.dao.CategoryDAO;
+import com.dev.shoppingbackend.dao.ProductDAO;
 import com.dev.shoppingbackend.dto.Category;
+import com.dev.shoppingbackend.dto.Product;
+import com.javadev.onlineshopping.exception.ProductNotFoundException;
 
 
 @Controller
 public class PageController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
@@ -22,6 +33,9 @@ public class PageController {
 		
 		ModelAndView model = new ModelAndView("page");
 		model.addObject("title","Home");
+		
+		logger.info("Inside PageController index method. - INFO");
+		logger.debug("Inside PageController index method. - DEBUG");
 		
 		// passing the list of categories
 		model.addObject("categories", categoryDAO.list());
@@ -87,7 +101,29 @@ public class PageController {
 		return model;
 	}
 	
-	
+	/*
+	 * Viewing a single Product
+	 * */
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundException {
+		
+		ModelAndView model = new ModelAndView("page");
+		Product product = productDAO.get(id);
+		
+		// condition if product is not available.
+		if(product == null) throw new ProductNotFoundException();
+		
+		// Update the View Count
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		
+		model.addObject("title", product.getName());
+		model.addObject("product", product);
+		model.addObject("userClickShowProduct", true);
+		
+		
+		return model;
+	}
 	
 	
 	

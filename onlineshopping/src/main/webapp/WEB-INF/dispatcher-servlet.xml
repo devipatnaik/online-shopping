@@ -21,6 +21,12 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- Id must be multiPartResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	
+	</bean>
+	
 	<!-- Loading Static Resources -->
 	
 	<mvc:annotation-driven />

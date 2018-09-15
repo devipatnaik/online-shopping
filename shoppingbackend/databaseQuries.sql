@@ -72,3 +72,6 @@ VALUES ('PRDMNO123PQRX', 'Macbook Pro', 'apple', 'This is one of the best Laptop
 
 INSERT into Product(code,name,brand,description,unit_price,quantity,is_active,category_id,supplier_id)
 VALUES ('PRDABC123XZCX', 'Dell Insprion', 'dell', 'This is one of the ever green Laptop available in the market right now!!', '41000', 5, true, 1, 3);
+
+/* UPDATE 
+UPDATE product SET is_active= 'TRUE' WHERE ID = 1; */

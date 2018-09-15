@@ -85,6 +85,11 @@
 				<%@include file="listProducts.jsp"%>
 			</c:if>
 			
+			<!-- Loading only when user click manage Products -->
+			<c:if test="${userClickManageProducts == true}">
+				<%@include file="manageProducts.jsp"%>
+			</c:if>
+			
 			
 		</div>
 
@@ -98,10 +103,13 @@
 		<script src="${js}/bootstrap.min.js"></script>
 		
 		<!-- DataTables Plugin -->
-		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/jquery.dataTables.js"></script> 
 		
 		<!-- DataTables Bootstrap Script -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- BootBox -->
+		<script src="${js}/bootbox.min.js"></script>
 
 		<!-- Self Coded JavaScript -->
 		<script src="${js}/myapp.js"></script>

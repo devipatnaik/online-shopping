@@ -66,8 +66,9 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	
 	<build>
-
 		<plugins>
 			<!-- Update to latest version of JAVA -->
 			<plugin>

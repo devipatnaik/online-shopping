@@ -63,7 +63,7 @@ public class PageController {
 	}
 	
 	/*
-	 * 	 Methods to load All Products and based on category
+	 * Methods to load All Products and based on category
 	 * */
 	
 	@RequestMapping(value = "/show/all/products")
@@ -85,7 +85,7 @@ public class PageController {
 		ModelAndView model = new ModelAndView("page");
 		
 		
-		// CategoryDAO to fetch single category
+		// CategoryDAO to Fetch Single Category
 		Category category = null;
 		category = categoryDAO.get(id);
 		

@@ -3,7 +3,7 @@
 	<div class="row">
 
 		<div class="col-md-3">
-			<!-- added side bar -->
+			<!-- added side bar here-->
 			<%@include file="./shared/sidebar.jsp" %>
 		</div>
 
@@ -15,8 +15,7 @@
 					<div id="carousel-example-generic" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#carousel-example-generic" data-slide-to="0"
-								class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 						</ol>
@@ -137,11 +136,11 @@
 						<div class="ratings">
 							<p class="pull-right">6 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>
@@ -161,11 +160,11 @@
 						<div class="ratings">
 							<p class="pull-right">18 reviews</p>
 							<p>
-								<span class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star"></span> <span
-									class="glyphicon glyphicon-star-empty"></span>
+								<span class="glyphicon glyphicon-star"></span> 
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star"></span>
+								<span class="glyphicon glyphicon-star-empty"></span>
 							</p>
 						</div>
 					</div>

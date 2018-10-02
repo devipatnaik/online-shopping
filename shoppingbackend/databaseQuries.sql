@@ -20,23 +20,41 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(50),
+	password VARCHAR(60),
 	email VARCHAR(100),
-	contact_number VARCHAR(10),
-	CONSTRAINT pk_user_id PRIMARY KEY(id),
+	contact_number VARCHAR(15),
+	CONSTRAINT pk_user_id PRIMARY KEY(id)
 );
 
 INSERT into user_detail
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Devi', 'Patnaik', 'ADMIN', true, 'admin', 'devi.patnaik.nit@gmail.com', '9148749525');
+VALUES ('Devi', 'Patnaik', 'ADMIN', true, 'admin', 'devipatnaik.nit@gmail.com', '9148749525');
 
 INSERT into user_detail 
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Ratan', 'Tata', 'SUPPLIER', true, 'tcs', 'ratan.tata@gmail.com', '9990009999');
+VALUES ('Ratan', 'Tata', 'SUPPLIER', true, 'ratan', 'ratan.tata@gmail.com', '9990009999');
 
 INSERT into user_detail 
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Sachin', 'Tendulkar', 'SUPPLIER', true, 'cricket', 'sachin.tendulkar@gmail.com', '7772227777');
+VALUES ('Sachin', 'Tendulkar', 'USER', true, 'sachin', 'sachin.tendulkar@gmail.com', '9880227979');
+
+INSERT into user_detail 
+(first_name,last_name,role,enabled,password,email,contact_number) 
+VALUES ('Sujata', 'Patnaik', 'USER', true, 'sujata', 'sujatadas99@gmail.com', '9937379074');
+
+----- BCrypte
+INSERT into user_detail
+(first_name,last_name,role,enabled,password,email,contact_number) 
+VALUES ('Devi', 'Patnaik', 'ADMIN', true, '$2b$10$KqV9MzhiJFip4MUDWIz5wO1DE9Im3iwt2SD5K6AjKzmUbNNefDpoS', 'devipatnaik.nit@gmail.com', '9148749525');
+
+INSERT into user_detail 
+(first_name,last_name,role,enabled,password,email,contact_number) 
+VALUES ('Ratan', 'Tata', 'SUPPLIER', true, '$2b$10$p0ZtA40ZWaShFywB0ddsq.3/RGPsiiBTGEcBGDJy9.L1sRSFBeDQ2', 'ratan.tata@gmail.com', '9990009999');
+
+INSERT into user_detail 
+(first_name,last_name,role,enabled,password,email,contact_number) 
+VALUES ('Sachin', 'Tendulkar', 'ADMIN', true, '$2b$10$KbcATdSq8uZrX0YI5AKwWuT5aiFNutObRnqIH/zPFHX6rBW.Nqeqq', 'sachin.tendulkar@gmail.com', '9880227979');
+
 
 
 CREATE TABLE Product (
@@ -75,3 +93,40 @@ VALUES ('PRDABC123XZCX', 'Dell Insprion', 'dell', 'This is one of the ever green
 
 /* UPDATE 
 UPDATE product SET is_active= 'TRUE' WHERE ID = 1; */
+
+CREATE TABLE Address (
+	id IDENTITY,
+	address_line_one VARCHAR(255),
+	address_line_two VARCHAR(255),
+	city VARCHAR(255),
+	state VARCHAR(15),
+	country VARCHAR(255),
+	postal_code VARCHAR(255),
+	billing BOOLEAN NOT NULL,
+	shipping BOOLEAN NOT NULL,
+	user_id INT,
+	CONSTRAINT pk_address_id PRIMARY KEY(id),
+	CONSTRAINT fk_address_id FOREIGN KEY (user_id) REFERENCES user_detail(id)
+);
+
+INSERT into Address(user_id,address_line_one,address_line_two,city,state,country,postal_code,billing,shipping)
+VALUES (1, '#861,4th Floor,4th Main Cross', 'Chodeswari Layout,Tulasi Theater Road', 'Banglore', 'Karnataka', 'India', '560037', 'TRUE','FALSE');
+
+INSERT into Address(user_id,address_line_one,address_line_two,city,state,country,postal_code,billing,shipping)
+VALUES (1, '#335,2nd Floor,9th Cross', 'Sanjya Nagar', 'Banglore', 'Karnataka', 'India', '560037', 'FALSE','TRUE');
+
+CREATE TABLE Cart (
+	id IDENTITY,
+	cart_lines INT,
+	grand_total double,
+	user_id INT,
+	CONSTRAINT pk_cart_id PRIMARY KEY(id),
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id)
+);
+
+show columns from table_name
+
+INSERT into Cart(user_id,grand_total,cart_lines)
+VALUES (1, 0, 0);
+
+

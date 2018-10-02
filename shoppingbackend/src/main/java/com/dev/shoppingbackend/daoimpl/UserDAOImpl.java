@@ -41,7 +41,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 	
-	@Override
+	/*@Override
 	public boolean addCart(Cart cart) {
 		try {
 			sessionFactory.getCurrentSession().persist(cart);
@@ -50,14 +50,14 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}*/
 	
 	
 	/*
 	 * As soon as i add a user and the role of the User is USER the Cart should Generate Automatically
 	 * This is the Functionality of addCart() function.*/
 	
-	/*@Override
+	@Override
 	public boolean updateCart(Cart cart) {
 		try {
 			sessionFactory.getCurrentSession().update(cart);
@@ -66,9 +66,9 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return false;
 		}
-	}*/
+	}
 
-	/*@Override
+	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email";
 		
@@ -78,10 +78,10 @@ public class UserDAOImpl implements UserDAO {
 							.setParameter("email", email)
 								.getSingleResult();
 		} catch (Exception e) {
-			// e.printStackTrace();
+			e.printStackTrace();
 			return null;
 		}
-	}*/
+	}
 
 	/*@Override
 	public Address getBillingAddress(User user) {

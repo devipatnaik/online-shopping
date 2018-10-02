@@ -10,7 +10,7 @@ public interface UserDAO {
 	
 	// Add an User
 	boolean addUser(User user);
-	//User getByEmail(String email);
+	User getByEmail(String email);
 	
 	// Add an Address
 	boolean addAddress(Address address);
@@ -24,9 +24,9 @@ public interface UserDAO {
 	//List<Address> listShippingAddress(User user);
 	
 	// add the cart
-	boolean addCart(Cart cart);
+	//boolean addCart(Cart cart);
 	
 	// Update the Cart
-	//boolean updateCart(Cart cart);
+	boolean updateCart(Cart cart);
 
 }

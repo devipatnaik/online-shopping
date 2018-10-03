@@ -196,6 +196,7 @@ public class UserTestCase {
 		assertEquals("Failed to Add Shipping Address!", true, userDAO.addAddress(address));
 	}*/
 	
+	// JUnit Test Not Run successfully
 	@Test
 	public void testGetAddress(){
 		user = userDAO.getByEmail("sonam.kapoor@gmail.com");

@@ -83,7 +83,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	/*@Override
+	@Override
 	public Address getBillingAddress(User user) {
 		
 		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
@@ -98,9 +98,9 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return null;
 		}
-	}*/
+	}
 
-	/*@Override
+	@Override
 	public List<Address> listShippingAddress(User user) {
 		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 		
@@ -110,10 +110,11 @@ public class UserDAOImpl implements UserDAO {
 						.setParameter("user", user)
 						.setParameter("shipping", true)
 							.getResultList();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-	}*/
+	}
 
 }

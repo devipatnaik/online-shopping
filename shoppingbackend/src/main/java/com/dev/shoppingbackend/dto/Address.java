@@ -25,11 +25,12 @@ public class Address implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name="user_id")
-	private int userId;
 	
-	//@ManyToOne
-	//private User user;
+	/*@Column(name="user_id")
+	private int userId;*/
+	
+	@ManyToOne
+	private User user;
 	
 	@Column(name="address_line_one")
 	//@NotBlank(message = "Please enter address one!")
@@ -49,24 +50,32 @@ public class Address implements Serializable{
 	private boolean billing;
 	private boolean shipping;
 	
-	/*public User getUser() {
+	
+	
+	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}*/
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getUserId() {
+	
+	
+	/*public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}
+	}*/
+	
+	
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}

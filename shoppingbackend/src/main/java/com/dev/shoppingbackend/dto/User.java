@@ -54,7 +54,7 @@ public class User implements Serializable{
 	//@Transient  // Transient means does not store inside the database
 	//private String confirmPassword;
 	
-	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)  // , fetch = FetchType.EAGER
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
 	private Cart cart;
 	
 	// setter and getter

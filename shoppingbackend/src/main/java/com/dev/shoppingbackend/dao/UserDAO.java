@@ -15,9 +15,9 @@ public interface UserDAO {
 	// Add an Address
 	boolean addAddress(Address address);
 	
-	// Alternative bcoz many tables records are printing in console which i don't like.
-	// Address getBillingAddress(int userId);
-	// List<Address> listShippingAddress(int userid);
+	// Alternative, because many tables records are printing in console which i don't like.
+	Address getBillingAddress(User user);
+	List<Address> listShippingAddress(User user);
 	
 	
 	//Address getBillingAddress(User user);

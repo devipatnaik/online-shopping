@@ -121,53 +121,18 @@ public class PageController {
 		model.addObject("product", product);
 		model.addObject("userClickShowProduct", true);
 		
-		
 		return model;
+		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/* having similar mapping to our flow id */
+	@RequestMapping(value = "/register")
+	public ModelAndView register() {
+		
+		ModelAndView model = new ModelAndView("page");
+		model.addObject("title","About Us");
+		return model;
+	}
 	
 	
 	

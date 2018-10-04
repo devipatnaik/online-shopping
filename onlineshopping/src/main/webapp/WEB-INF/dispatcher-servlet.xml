@@ -53,16 +53,13 @@
 	
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
-		<!-- <property name="order" value="-1" /> --> 
+		<property name="order" value="-1" />  <!-- having similar mapping to our flow id -->
 	</bean>
 	
 	<!-- For resolving views for web flow we will add one or more bean which will point to the view resolver -->
 	<bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 		<property name="viewResolvers" ref="viewResolver" />
 	</bean>
-	
-	
-	
 	
 
 </beans>

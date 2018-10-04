@@ -1,5 +1,6 @@
 package com.dev.shoppingbackend.dto;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -18,8 +19,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /*Product is a Entity class (Hibernate POJO) */
 
 @Entity
-public class Product {
+public class Product implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// private fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

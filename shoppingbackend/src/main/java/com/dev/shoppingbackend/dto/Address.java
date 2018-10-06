@@ -26,38 +26,44 @@ public class Address implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	/*@Column(name="user_id")
-	private int userId;*/
+	@Column(name="user_id")
+	private int userId;
 	
-	@ManyToOne
-	private User user;
+	//@ManyToOne
+	//private User user;
 	
 	@Column(name="address_line_one")
-	//@NotBlank(message = "Please enter address one!")
+	@NotBlank(message = "Please enter address one!")
 	private String addressLineOne;
+	
 	@Column(name="address_line_two")
-	//@NotBlank(message = "Please enter address two!")
+	@NotBlank(message = "Please enter address two!")
 	private String addressLineTwo;
-	//@NotBlank(message = "Please enter city name!")
+	
+	@NotBlank(message = "Please enter city name!")
 	private String city;
-	//@NotBlank(message = "Please enter state name!")
+	
+	@NotBlank(message = "Please enter state name!")
 	private String state;
-	//@NotBlank(message = "Please enter country name!")
+	
+	@NotBlank(message = "Please enter country name!")
 	private String country;
+	
 	@Column(name="postal_code")
-	//@NotBlank(message = "Please enter postal code!")
+	@NotBlank(message = "Please enter postal code!")
 	private String postalCode;
+	
 	private boolean billing;
 	private boolean shipping;
 	
 	
 	
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	
 	
 	public int getId() {
@@ -68,12 +74,12 @@ public class Address implements Serializable{
 	}
 	
 	
-	/*public int getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
-	}*/
+	}
 	
 	
 	public String getAddressLineOne() {

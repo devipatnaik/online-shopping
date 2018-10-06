@@ -21,7 +21,7 @@
 								<div class="col-md-8">
 									<sf:input path="firstName" type="text" class="form-control" placeholder="First Name"/>
 									
-									<%-- <sf:errors path="firstName" cssClass="help-block" element="em" /> --%>
+									<sf:errors path="firstName" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -30,7 +30,7 @@
 								<div class="col-md-8">
 									<sf:input path="lastName" type="text" class="form-control" placeholder="Last Name"/>
 									
-									<%-- <sf:errors path="lastName" cssClass="help-block" element="em" /> --%>
+									<sf:errors path="lastName" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -39,7 +39,7 @@
 								<div class="col-md-8">
 									<sf:input path="email" type="text" class="form-control" placeholder="demo@shopping.com"/>
 									
-									<%-- <sf:errors path="email" cssClass="help-block" element="em" /> --%>
+									<sf:errors path="email" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -48,7 +48,7 @@
 								<div class="col-md-8">
 									<sf:input path="contactNumber" type="text" class="form-control" placeholder="XXXXXXXXXX"/>
 									
-									<%-- <sf:errors path="contactNumber" cssClass="help-block" element="em" /> --%>
+									<sf:errors path="contactNumber" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
@@ -57,19 +57,19 @@
 								<div class="col-md-8">
 									<sf:input path="password" type="password" class="form-control" placeholder="Password"/>
 									
-									<%-- <sf:errors path="password" cssClass="help-block" element="em" /> --%>
+									<sf:errors path="password" cssClass="help-block" element="em" />
 								</div>
 							</div>
 							
 							<!-- Confirm Password -->
-							<%-- <div class="form-group">
+							<div class="form-group">
 								<label class="control-label col-md-4">Confirm Password</label>
 								<div class="col-md-8">
 									<sf:input path="confirmPassword" type="password" class="form-control" placeholder="Re-enter Password"/>
 									
 									<sf:errors path="confirmPassword" cssClass="help-block" element="em" />
 								</div>
-							</div> --%>
+							</div>
 							
 							<!-- radio button using bootstrap class of radio-inline -->
 							<div class="form-group">

@@ -332,10 +332,10 @@ $(function() {
 			messages : {
 				username : {
 					required: 'Please enter the email address as username!',
-					email: 'Please enter valid email address!'
+					email: 'Please enter valid Email Address!'
 				},
 				password: {
-					required: 'Please enter the password!'
+					required: 'Please enter the Password!'
 				}
 			},
 			errorElement: 'em',

@@ -316,7 +316,7 @@ $(function() {
 	}
 	// ***********end*******************
 	
-	// Validation Code for Login Form (JQuery Validation)
+	// Validation (JQuery Validation) Code for Login Form.
 	var $loginForm = $('#loginForm');
 	if($loginForm.length){
 		$loginForm.validate({

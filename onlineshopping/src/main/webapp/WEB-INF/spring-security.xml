@@ -1,0 +1,46 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+        
+     <context:component-scan base-package="com.dev.shoppingbackend.daoimpl" />
+	 <context:component-scan base-package="com.dev.shoppingbackend.config" />
+
+
+	<http>
+		<intercept-url pattern="/**" access="hasAuthority('USER')" />
+		<!-- <intercept-url pattern="/**" access="hasRole('USER')" /> -->
+		<form-login />
+		<logout />
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<!-- <password-encoder ref="passwordEncoder" /> -->
+			
+			<jdbc-user-service data-source-ref="dataSource" 
+				users-by-username-query="select email, password, enabled from user_detail where email = ?"
+				authorities-by-username-query="select email, role from user_detail where email = ?" />
+		
+			<!-- <user-service>
+				Password is prefixed with {noop} to indicate to DelegatingPasswordEncoder 
+					that NoOpPasswordEncoder should be used. This is not safe for production, 
+					but makes reading in samples easier. Normally passwords should be hashed 
+					using BCrypt
+				<user name="devi" password="devipwd" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="devi" password="devipwd" authorities="USER, ADMIN" />
+			</user-service> -->
+			
+		</authentication-provider>
+	</authentication-manager>
+
+
+
+
+</beans:beans>

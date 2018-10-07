@@ -23,8 +23,8 @@ public class HibernateConfig {
 	private final static String DATABASE_PASSWORD = "";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
 	
- // DataSource Bean will be available here.
-	@Bean
+	// DataSource Bean will be available here.
+	@Bean("dataSource")
 	public DataSource getDataSource(){
 		
 		BasicDataSource dataSource = new BasicDataSource();
@@ -36,7 +36,7 @@ public class HibernateConfig {
 		dataSource.setPassword(DATABASE_PASSWORD);	
 		return dataSource;
 	}	
- // SessionFactory Bean will be available here.	
+	// SessionFactory Bean will be available here.	
 	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource){
 		

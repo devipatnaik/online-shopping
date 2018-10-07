@@ -15,8 +15,7 @@
 
 	<!-- To identify the all controller classes in the package. -->
 	<context:component-scan base-package="com.javadev.onlineshopping" />
-	<context:component-scan base-package="com.dev.shoppingbackend.daoimpl" />
-	<context:component-scan base-package="com.dev.shoppingbackend.config" />
+	
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

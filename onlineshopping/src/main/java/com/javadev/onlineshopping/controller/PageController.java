@@ -144,20 +144,11 @@ public class PageController {
 		if(error != null){
 			model.addObject("message", "Invalid Username and Bad Password!");
 		}
-		/*if(logout != null){
-			model.addObject("logout", "User has Successfully Logged Out!");
-		}*/
 		
 		model.addObject("title","Login");
 		return model;
 		
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	/* For Testing Purpose.

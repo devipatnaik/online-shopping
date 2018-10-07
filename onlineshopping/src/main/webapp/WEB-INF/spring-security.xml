@@ -12,11 +12,13 @@
      <context:component-scan base-package="com.dev.shoppingbackend.daoimpl" />
 	 <context:component-scan base-package="com.dev.shoppingbackend.config" />
 
+	<!-- Allow to load static resources which does not require any form security -->
+	<http pattern="/resources/**" security="none" />
 
 	<http>
+		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/**" access="hasAuthority('USER')" />
-		<!-- <intercept-url pattern="/**" access="hasRole('USER')" /> -->
-		<form-login />
+		<form-login login-page="/login"/>
 		<logout />
 	</http>
 	

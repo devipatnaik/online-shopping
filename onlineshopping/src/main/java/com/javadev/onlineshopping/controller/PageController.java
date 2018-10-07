@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.shoppingbackend.dao.CategoryDAO;
@@ -134,8 +135,23 @@ public class PageController {
 		return model;
 	}
 	
-	
-	
+	/* Request Mapping for Spring Security Login */
+	@RequestMapping(value = "/login")
+	public ModelAndView login(@RequestParam(name="error", required = false) String error) {
+		
+		ModelAndView model = new ModelAndView("login");
+		
+		if(error != null){
+			model.addObject("message", "Invalid Username and Bad Password!");
+		}
+		/*if(logout != null){
+			model.addObject("logout", "User has Successfully Logged Out!");
+		}*/
+		
+		model.addObject("title","Login");
+		return model;
+		
+	}
 	
 	
 	

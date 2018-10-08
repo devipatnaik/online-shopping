@@ -27,7 +27,22 @@ $(function() {
 		break
 	}
 	
+	// to tackle the CSRF token
+	
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0) {
+		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {
+			xhr.setRequestHeader(header,token);
+		}) ;
+	}
+	
+	
 	// code for jQuery dataTables 
+	
 	/*// create a dataset
 	var products = [
 	                

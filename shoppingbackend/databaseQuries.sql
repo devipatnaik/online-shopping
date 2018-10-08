@@ -42,19 +42,22 @@ INSERT into user_detail
 (first_name,last_name,role,enabled,password,email,contact_number) 
 VALUES ('Sujata', 'Patnaik', 'USER', true, 'sujata', 'sujatadas99@gmail.com', '9937379074');
 
------ BCrypte
+----- BCrypte --------------
 INSERT into user_detail
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Devi', 'Patnaik', 'ADMIN', true, '$2b$10$KqV9MzhiJFip4MUDWIz5wO1DE9Im3iwt2SD5K6AjKzmUbNNefDpoS', 'devipatnaik.nit@gmail.com', '9148749525');
+VALUES ('Devi', 'Patnaik', 'ADMIN', true, '$2b$10$cvPkaVhbvjmzXtM6sNyIGuxH/lnI5o4FFbVwV28d9/NEOcEtZ2Xqy', 'devipatnaik.nit@gmail.com', '9148749525');
 
 INSERT into user_detail 
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Ratan', 'Tata', 'SUPPLIER', true, '$2b$10$p0ZtA40ZWaShFywB0ddsq.3/RGPsiiBTGEcBGDJy9.L1sRSFBeDQ2', 'ratan.tata@gmail.com', '9990009999');
+VALUES ('Ratan', 'Tata', 'SUPPLIER', true, '$2b$10$Fekii1b1//NPa000b5lR7.CIaIEspp7JofQ5cOGc0OHAPYooGBlCK', 'ratan.tata@gmail.com', '9990009999');
 
 INSERT into user_detail 
 (first_name,last_name,role,enabled,password,email,contact_number) 
-VALUES ('Sachin', 'Tendulkar', 'ADMIN', true, '$2b$10$KbcATdSq8uZrX0YI5AKwWuT5aiFNutObRnqIH/zPFHX6rBW.Nqeqq', 'sachin.tendulkar@gmail.com', '9880227979');
+VALUES ('Sachin', 'Tendulkar', 'USER', true, '$2b$10$UUO0IsRCQyNYFBFdzKv7xO8mWn27yNhuidQCNYBBJHDRY/WUR4cQC', 'sachin.tendulkar@gmail.com', '9880227979');
 
+INSERT into user_detail 
+(first_name,last_name,role,enabled,password,email,contact_number) 
+VALUES ('Sujata', 'Patnaik', 'USER', true, '$2b$10$mSRl8xyThkkG0xJBPLGRXePT0784zOXaA26ee2552WL3CxEUT/uF6', 'sujatadas99@gmail.com', '9937379074');
 
 
 CREATE TABLE Product (

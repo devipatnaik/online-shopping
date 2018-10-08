@@ -11,6 +11,9 @@
         
      <context:component-scan base-package="com.dev.shoppingbackend.daoimpl" />
 	 <context:component-scan base-package="com.dev.shoppingbackend.config" />
+	 
+	 <!-- BCrypt Password -->
+	 <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
 	<!-- Allow to load static resources which does not require any form security -->
 	<http pattern="/resources/**" security="none" />
@@ -33,7 +36,7 @@
 	
 	<authentication-manager>
 		<authentication-provider>
-			<!-- <password-encoder ref="passwordEncoder" /> -->
+			<password-encoder ref="passwordEncoder" />
 			
 			<jdbc-user-service data-source-ref="dataSource" 
 				users-by-username-query="select email, password, enabled from user_detail where email = ?"
@@ -50,8 +53,6 @@
 			
 		</authentication-provider>
 	</authentication-manager>
-
-
 
 
 </beans:beans>

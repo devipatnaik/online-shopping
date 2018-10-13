@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -49,10 +48,7 @@ public class Address implements Serializable{
 	private boolean billing;
 	private boolean shipping;
 	
-	/*@Column(name="user_id")
-	private int userId;*/
-	
-	@ManyToOne
+	/*@ManyToOne
 	private User user;
 	
 	public User getUser() {
@@ -60,7 +56,19 @@ public class Address implements Serializable{
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}*/
+	
+	/* This below user_id is only for reduce the query printed in console and application performance become fast */
+	@Column(name="user_id")
+	private int userId;
+	
+	public int getUserId() {
+		return userId;
 	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	/***********************************/
 	
 	public int getId() {
 		return id;
@@ -69,12 +77,6 @@ public class Address implements Serializable{
 		this.id = id;
 	}
 	
-	/*public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}*/
 	public String getAddressLineOne() {
 		return addressLineOne;
 	}

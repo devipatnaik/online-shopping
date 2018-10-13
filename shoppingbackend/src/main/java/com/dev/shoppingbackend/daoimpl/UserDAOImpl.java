@@ -84,6 +84,73 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public Address getBillingAddress(int userId) {
+
+		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :billing";
+		try{
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("billing", true)
+						.getSingleResult();
+		}
+		catch(Exception ex) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Address> listShippingAddress(int userId) {
+
+		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :shipping ORDER BY id DESC";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("shipping", true)
+							.getResultList();
+		
+	}
+
+	@Override
+	public User get(int id) {
+
+		try {			
+			return sessionFactory.getCurrentSession().get(User.class, id);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public Address getAddress(int addressId) {
+
+		try {			
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+
+		try {			
+			sessionFactory.getCurrentSession().update(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
+
+	/*@Override
 	public Address getBillingAddress(User user) {
 		
 		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
@@ -98,9 +165,9 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	@Override
+	}*/
+	
+	/*@Override
 	public List<Address> listShippingAddress(User user) {
 		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 		
@@ -115,6 +182,6 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 
 }

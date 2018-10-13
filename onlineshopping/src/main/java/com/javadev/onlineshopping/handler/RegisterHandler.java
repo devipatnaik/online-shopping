@@ -65,7 +65,7 @@ public class RegisterHandler {
 	}
 	
 	
-	// Adding the User
+	 // Adding the User
 		public String saveAll(RegisterModel model){
 			String transitionValue = "success";
 			
@@ -73,6 +73,7 @@ public class RegisterHandler {
 			User user = model.getUser();
 			
 			if(user.getRole().equals("USER")){
+				// Create a new Cart
 				Cart cart = new Cart();
 				cart.setUser(user);
 				user.setCart(cart);
@@ -87,6 +88,7 @@ public class RegisterHandler {
 			// get the address
 			Address billing = model.getBilling();
 			billing.setUserId(user.getId());
+			//billing.setUser(user);
 			billing.setBilling(true);
 			
 			// save the address

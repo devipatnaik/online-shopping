@@ -176,25 +176,27 @@ public class UserTestCase {
 		assertEquals("Failed to Add Shipping Address!", true, userDAO.addAddress(address));
 	}*/
 	
-	/* Adding Address to the User */
+	/* Adding Address to the User for UniDirectional */
 	/*@Test
 	public void testAddAddress(){
 		
-		user = userDAO.getByEmail("sujatapatnaik@gmail.com");	
+		user = userDAO.getByEmail("sujatapatnaik@gmail.com");
+
 		
 		// we are also going to add the shipping Address
 		address = new Address();
 		address.setAddressLineOne("Jagannatha Colony");
-		address.setAddressLineTwo("Budharaja Main Road");
+		address.setAddressLineTwo("Budharaja, Main Road");
 		address.setCity("Sambalpur");
 		address.setState("Odisha");
 		address.setCountry("India");
-		address.setPostalCode("760030");
+		address.setPostalCode("768004");
 		// set shipping to true here
 		address.setShipping(true);
 				
 		// attached the User to the Address
-		address.setUser(user);
+		address.setUserId(user.getId());
+		// address.setUser(user);
 				
 		// add the Shipping Address
 		assertEquals("Failed to Add Shipping Address!", true, userDAO.addAddress(address));
@@ -205,10 +207,28 @@ public class UserTestCase {
 	public void testGetAddress(){
 		
 		user = userDAO.getByEmail("sujatapatnaik@gmail.com");
-
-		assertEquals("Failed to fetch the List of Address and size does not match!", 2, userDAO.listShippingAddress(user).size());
 		
-		assertEquals("Failed to fetch the List of Billing Address and size does not match!", "Banglore", userDAO.getBillingAddress(user).getCity());
+		/*
+		 * Added By : Devi Patnaik, Date : 13/10/2018 time: 08:54 PM
+		 * 
+		 * This below Print Statement belongs to the User only,
+		 * In UserDAO class, if the blow Abstract Methods are enable(i.e Uncommented).
+		 * 
+		 * 	Address getBillingAddress(User user);
+		 *  List<Address> listShippingAddress(User user);
+		 *  
+		 *  Then the below statement will work and Test Case will run successfully!!!!
+		 * 
+		   assertEquals("Failed to fetch the List of Address and size does not match!", 2, userDAO.listShippingAddress(user).size());
+		   assertEquals("Failed to fetch the List of Billing Address and size does not match!", "Banglore", userDAO.getBillingAddress(user).getCity());
+		   
+		 */
+		
+		/* This below Print Statement belongs to the userId only to increase the performance of application */
+		
+		assertEquals("Failed to fetch the List of Address and size does not match!", 2, userDAO.listShippingAddress(14).size());
+		
+		assertEquals("Failed to fetch the List of Billing Address and size does not match!", "Banglore", userDAO.getBillingAddress(14).getCity());
 		
 	}
 

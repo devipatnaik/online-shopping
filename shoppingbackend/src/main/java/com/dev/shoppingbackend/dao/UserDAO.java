@@ -16,17 +16,17 @@ public interface UserDAO {
 	boolean addAddress(Address address);
 	
 	// Alternative, because many tables records are printing in console which i don't like.
+	// Address getBillingAddress(User user);
+	// List<Address> listShippingAddress(User user);
+	
 	Address getBillingAddress(User user);
 	List<Address> listShippingAddress(User user);
 	
 	
-	//Address getBillingAddress(User user);
-	//List<Address> listShippingAddress(User user);
-	
 	// add the cart
-	//boolean addCart(Cart cart);
+	// boolean addCart(Cart cart);
 	
-	// Update the Cart
+	// Update the cart
 	boolean updateCart(Cart cart);
-
+	
 }

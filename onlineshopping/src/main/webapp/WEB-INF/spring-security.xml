@@ -17,21 +17,29 @@
 
 	<!-- Allow to load static resources which does not require any form security -->
 	<http pattern="/resources/**" security="none" />
-
+	
 	<http>
-		<!-- Only Admin Access -->
+	 	<intercept-url pattern="/login" access="permitAll" />
+	 	<intercept-url pattern="/**" access="hasAuthority('USER')" />
+		<form-login login-page="/login" />
+		<logout />
+	</http>
+	
+	
+	<!-- <http>
+		Only Admin Access
 		<intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
 		
-		<!-- Only User Access (who is registered) -->
+		Only User Access (who is registered)
 		<intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
 		
-		<!-- Rest of the World -->
+		Rest of the World
 		<intercept-url pattern="/**" access="permitAll" />
-		<!-- <intercept-url pattern="/login" access="permitAll" /> -->
+		<intercept-url pattern="/login" access="permitAll" />
 		<form-login login-page="/login"/>
-		<!-- Access Denied Error page -->
+		Access Denied Error page
 		<access-denied-handler error-page="/access-denied" />
-	</http>
+	</http> -->
 	
 	<authentication-manager>
 		<authentication-provider>

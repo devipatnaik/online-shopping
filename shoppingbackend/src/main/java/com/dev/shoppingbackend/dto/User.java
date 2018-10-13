@@ -58,16 +58,9 @@ public class User implements Serializable{
 	@Transient  // Transient means does not store inside the database
 	private String confirmPassword;
 	
+	/* By-Directional OneToOne Mapping */
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)  
 	private Cart cart;
-	
-	// setter and getter
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 	
 	public Cart getCart() {
 		return cart;
@@ -76,7 +69,12 @@ public class User implements Serializable{
 		this.cart = cart;
 	}
 	
-	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
 	public int getId() {
 		return id;
 	}

@@ -99,17 +99,17 @@ UPDATE product SET is_active= 'TRUE' WHERE ID = 1; */
 
 CREATE TABLE Address (
 	id IDENTITY,
+	user_id int,
 	address_line_one VARCHAR(255),
 	address_line_two VARCHAR(255),
-	city VARCHAR(255),
+	city VARCHAR(15),
 	state VARCHAR(15),
-	country VARCHAR(255),
-	postal_code VARCHAR(255),
+	country VARCHAR(15),
+	postal_code VARCHAR(10),
 	billing BOOLEAN NOT NULL,
 	shipping BOOLEAN NOT NULL,
-	user_id INT,
-	CONSTRAINT pk_address_id PRIMARY KEY(id),
-	CONSTRAINT fk_address_id FOREIGN KEY (user_id) REFERENCES user_detail(id)
+	CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id),
+	CONSTRAINT pk_address_id PRIMARY KEY(id)
 );
 
 INSERT into Address(user_id,address_line_one,address_line_two,city,state,country,postal_code,billing,shipping)
@@ -120,11 +120,11 @@ VALUES (1, '#335,2nd Floor,9th Cross', 'Sanjya Nagar', 'Banglore', 'Karnataka', 
 
 CREATE TABLE Cart (
 	id IDENTITY,
-	cart_lines INT,
-	grand_total double,
-	user_id INT,
-	CONSTRAINT pk_cart_id PRIMARY KEY(id),
-	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id)
+	user_id int,
+	grand_total DECIMAL(10,2),
+	cart_lines int,
+	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id),
+	CONSTRAINT pk_cart_id PRIMARY KEY(id)
 );
 
 show columns from table_name
@@ -132,4 +132,16 @@ show columns from table_name
 INSERT into Cart(user_id,grand_total,cart_lines)
 VALUES (1, 0, 0);
 
-
+------ the cart_line table to store the cart details -------
+CREATE TABLE cart_line (
+	id IDENTITY,
+	cart_id int,
+	total DECIMAL(10,2),
+	product_id int,
+	product_count int,
+	buying_price DECIMAL(10,2),
+	is_available boolean,
+	CONSTRAINT fk_cartline_cart_id FOREIGN KEY (cart_id) REFERENCES cart(id),
+	CONSTRAINT fk_cartline_product_id FOREIGN KEY (product_id) REFERENCES product(id),
+	CONSTRAINT pk_cartline_id PRIMARY KEY (id)
+);

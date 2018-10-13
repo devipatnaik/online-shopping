@@ -60,9 +60,11 @@ public class UserTestCase {
 		
 		if(user.getRole().equals("USER")){
 			
-			// create a cart for this user
+			 create a cart for this user
+			 * Linking Cart with UserId 
+			
 			cart = new Cart();
-			//cart.setUserId(user.getId());  // Linking Cart with UserId
+			//cart.setUserId(user.getId()); 
 			cart.setUser(user);
 			
 			// add the Cart
@@ -89,6 +91,7 @@ public class UserTestCase {
 	
 	/*@Test
 	public void testAdd(){
+		
 		user = new User();
 		user.setFirstName("Sonam");
 		user.setLastName("Kapoor");
@@ -119,7 +122,7 @@ public class UserTestCase {
 		// get the Cart of the User
 		cart = user.getCart();
 		
-		cart.setGrandTotal(5555);
+		cart.setGrandTotal(4999);
 		cart.setCartLines(2);
 		
 		assertEquals("Failed to Update the Cart!", true, userDAO.updateCart(cart));
@@ -173,19 +176,20 @@ public class UserTestCase {
 		assertEquals("Failed to Add Shipping Address!", true, userDAO.addAddress(address));
 	}*/
 	
+	/* Adding Address to the User */
 	/*@Test
 	public void testAddAddress(){
 		
-		user = userDAO.getByEmail("sonam.kapoor@gmail.com");	
+		user = userDAO.getByEmail("sujatapatnaik@gmail.com");	
 		
 		// we are also going to add the shipping Address
 		address = new Address();
-		address.setAddressLineOne("SEZ Campus");
-		address.setAddressLineTwo("ELCOT main Road");
-		address.setCity("Chennai");
-		address.setState("Tamilnadu");
+		address.setAddressLineOne("Jagannatha Colony");
+		address.setAddressLineTwo("Budharaja Main Road");
+		address.setCity("Sambalpur");
+		address.setState("Odisha");
 		address.setCountry("India");
-		address.setPostalCode("600119");
+		address.setPostalCode("760030");
 		// set shipping to true here
 		address.setShipping(true);
 				
@@ -196,12 +200,13 @@ public class UserTestCase {
 		assertEquals("Failed to Add Shipping Address!", true, userDAO.addAddress(address));
 	}*/
 	
-	// JUnit Test Not Run successfully
+	/* Fetch the List of Address */
 	@Test
 	public void testGetAddress(){
-		user = userDAO.getByEmail("sonam.kapoor@gmail.com");
+		
+		user = userDAO.getByEmail("sujatapatnaik@gmail.com");
 
-		assertEquals("Failed to fetch the List of Address and size does not match!", 1, userDAO.listShippingAddress(user).size());
+		assertEquals("Failed to fetch the List of Address and size does not match!", 2, userDAO.listShippingAddress(user).size());
 		
 		assertEquals("Failed to fetch the List of Billing Address and size does not match!", "Banglore", userDAO.getBillingAddress(user).getCity());
 		

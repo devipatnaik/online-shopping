@@ -52,11 +52,6 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}*/
 	
-	
-	/*
-	 * As soon as i add a user and the role of the User is USER the Cart should Generate Automatically
-	 * This is the Functionality of addCart() function.*/
-	
 	@Override
 	public boolean updateCart(Cart cart) {
 		try {
@@ -67,7 +62,12 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 	}
-
+	
+	
+	/*
+	 * As soon as i add a user and the role of the User is USER the Cart should Generate Automatically
+	 * This is the Functionality of addCart() function.*/
+	
 	@Override
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email";

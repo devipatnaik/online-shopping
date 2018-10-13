@@ -27,11 +27,15 @@
                     </li>
                     
                     <!-- This Manage Product Should be Displayed Only to the ADMIN -->
-                    <security:authorize access="hasAuthority('ADMIN')">
+                    <%-- <security:authorize access="hasAuthority('ADMIN')">
 	                    <li id="manageProducts">
 	                        <a href="${contextRoot}/manage/products">Manage Products</a>
 	                    </li>
-                    </security:authorize>
+                    </security:authorize> --%>
+                    
+                    <li id="manageProducts">
+	                    <a href="${contextRoot}/manage/products">Manage Products</a>
+	                </li>
                     
                 </ul>
                 

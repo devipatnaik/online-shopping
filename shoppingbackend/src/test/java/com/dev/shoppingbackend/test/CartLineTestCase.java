@@ -23,8 +23,8 @@ public class CartLineTestCase {
 	private static UserDAO userDAO = null;
 	
 	private Product product = null;
-	private Cart cart = null;
 	private User user = null;
+	private Cart cart = null;
 	private CartLine cartLine = null;
 	
 	@BeforeClass
@@ -35,7 +35,7 @@ public class CartLineTestCase {
 		productDAO = (ProductDAO)context.getBean("productDAO");
 		userDAO = (UserDAO)context.getBean("userDAO");
 		System.out.println("upto here fine===========");
-		cartLineDAO =  (CartLineDAO)context.getBean("cartLineDAO");
+		cartLineDAO =  (CartLineDAO) context.getBean("cartLineDAO");
 		
 	}
 	
@@ -43,7 +43,7 @@ public class CartLineTestCase {
 	public void testAddNewCartLine(){
 		
 		// 1. get the User
-		user = userDAO.getByEmail("kamal.patnaik@gmail.com");
+		user = userDAO.getByEmail("kamalpatnaik@gmail.com");
 		
 		// 2. fetch the Cart
 		cart = user.getCart();
@@ -66,16 +66,15 @@ public class CartLineTestCase {
 		
 		cartLine.setProduct(product);
 		
-		assertEquals("Failed to Add the CArt Line", true, cartLineDAO.add(cartLine));
+		assertEquals("Failed to Add the Cart Line", true, cartLineDAO.add(cartLine));
 		
 		
 		// update the Cart
 		cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
 		cart.setCartLines(cart.getCartLines() + 1);
-		assertEquals("Failed to Update the CArt Line", true, cartLineDAO.updateCart(cart));
-		
-		
-		
+		assertEquals("Failed to Update the Cart Line", true, cartLineDAO.updateCart(cart));
 	}
+	
+	
 
 }

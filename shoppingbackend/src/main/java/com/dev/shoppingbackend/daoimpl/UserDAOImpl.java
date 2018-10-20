@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dev.shoppingbackend.dao.UserDAO;
 import com.dev.shoppingbackend.dto.Address;
-import com.dev.shoppingbackend.dto.Cart;
 import com.dev.shoppingbackend.dto.User;
 
 @Repository("userDAO")
@@ -52,7 +51,8 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}*/
 	
-	@Override
+	/* Moved this method to CartLineDAOImpl.java */
+	/*@Override
 	public boolean updateCart(Cart cart) {
 		try {
 			sessionFactory.getCurrentSession().update(cart);
@@ -61,7 +61,7 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}*/
 	
 	
 	/*

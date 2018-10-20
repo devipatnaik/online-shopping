@@ -34,7 +34,7 @@ public class CartLine implements Serializable {
 	@Column(name="is_available")
 	private boolean available = true;
 	
-	@Column(name="buing_price")
+	@Column(name="buying_price")
 	private double buyingPrice;
 	
 	@OneToOne

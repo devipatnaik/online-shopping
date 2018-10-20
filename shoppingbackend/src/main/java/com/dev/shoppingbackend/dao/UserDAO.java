@@ -3,7 +3,6 @@ package com.dev.shoppingbackend.dao;
 import java.util.List;
 
 import com.dev.shoppingbackend.dto.Address;
-import com.dev.shoppingbackend.dto.Cart;
 import com.dev.shoppingbackend.dto.User;
 
 public interface UserDAO {
@@ -31,7 +30,8 @@ public interface UserDAO {
 	// add the cart
 	// boolean addCart(Cart cart);
 	
+	/*Moved this abstract method to CartLineDAO.java */
 	// Update the cart
-	boolean updateCart(Cart cart);
+	//boolean updateCart(Cart cart);
 	
 }
